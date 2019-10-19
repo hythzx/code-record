@@ -1,0 +1,36 @@
+/** 项目 */
+entity Project {
+	/** 项目名称 */
+	name String required minlength(0) maxlength(12),
+    /** 项目编号 */
+    code String required minlength(0) maxlength(64),
+    /** 备注 */
+    desc TextBlob
+}
+
+
+/** 开发人员 */
+entity Developer {
+	/** 开发人员姓名 */
+	name String required minlength(0) maxlength(12)
+}
+
+/** 提交记录 */
+entity SubmitRecord {
+	/** 记录时间 */
+	recordDate LocalDate required,
+    
+    /** 代码行数 */
+    cnt Integer required
+}
+
+
+relationship ManyToOne {
+	SubmitRecord{Developer(name)} to Developer,
+    SubmitRecord{Project(name)} to Project
+}
+
+
+service all with serviceImpl
+dto all with mapstruct
+paginate all with pagination

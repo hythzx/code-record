@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-submit-record-heading" jhiTranslate="codeRecordApplicationApp.submitRecord.home.createOrEditLabel">Create or edit a Submit Record</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="codeRecordApplicationApp.submitRecord.recordDate" for="field_recordDate" [ngbTooltip]="'codeRecordApplicationApp.submitRecord.help.recordDate' | translate">Record Date</label>
+                    <div class="input-group">
+                        <input id="field_recordDate" type="text" class="form-control" name="recordDate" ngbDatepicker  #recordDateDp="ngbDatepicker" formControlName="recordDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="recordDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('recordDate').invalid && (editForm.get('recordDate').dirty || editForm.get('recordDate').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('recordDate').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="codeRecordApplicationApp.submitRecord.cnt" for="field_cnt" [ngbTooltip]="'codeRecordApplicationApp.submitRecord.help.cnt' | translate">Cnt</label>
+                    <input type="number" class="form-control" name="cnt" id="field_cnt"
+                           formControlName="cnt"/>
+                    <div *ngIf="editForm.get('cnt').invalid && (editForm.get('cnt').dirty || editForm.get('cnt').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cnt').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('cnt')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="codeRecordApplicationApp.submitRecord.developer" for="field_developer">Developer</label>
+                    <select class="form-control" id="field_developer" name="developer" formControlName="developerId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="developerOption.id" *ngFor="let developerOption of developers; trackBy: trackDeveloperById">{{developerOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="codeRecordApplicationApp.submitRecord.project" for="field_project">Project</label>
+                    <select class="form-control" id="field_project" name="project" formControlName="projectId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="projectOption.id" *ngFor="let projectOption of projects; trackBy: trackProjectById">{{projectOption.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

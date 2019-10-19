@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="project">
+            <h2><span jhiTranslate="codeRecordApplicationApp.project.detail.title">Project</span> {{project.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="codeRecordApplicationApp.project.name" [ngbTooltip]="'codeRecordApplicationApp.project.help.name' | translate">Name</span></dt>
+                <dd>
+                    <span>{{project.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="codeRecordApplicationApp.project.code" [ngbTooltip]="'codeRecordApplicationApp.project.help.code' | translate">Code</span></dt>
+                <dd>
+                    <span>{{project.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="codeRecordApplicationApp.project.desc" [ngbTooltip]="'codeRecordApplicationApp.project.help.desc' | translate">Desc</span></dt>
+                <dd>
+                    <span>{{project.desc}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/project', project.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
