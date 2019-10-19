@@ -1,0 +1,29 @@
+{
+    "name": "Developer",
+    "fields": [
+        {
+            "fieldName": "name",
+            "javadoc": "开发人员姓名",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 0,
+            "fieldValidateRulesMaxlength": 12
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20191019020827",
+    "javadoc": "开发人员",
+    "entityTableName": "developer",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

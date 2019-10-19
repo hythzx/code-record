@@ -1,0 +1,30 @@
+{
+  "codeRecordApplicationApp": {
+    "submitRecord": {
+      "home": {
+        "title": "Submit Records",
+        "createLabel": "Create a new Submit Record",
+        "createOrEditLabel": "Create or edit a Submit Record",
+        "search": "Search for Submit Record",
+        "notFound": "No Submit Records found"
+      },
+      "created": "A new Submit Record is created with identifier {{ param }}",
+      "updated": "A Submit Record is updated with identifier {{ param }}",
+      "deleted": "A Submit Record is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Submit Record {{ id }}?"
+      },
+      "detail": {
+        "title": "Submit Record"
+      },
+      "recordDate": "Record Date",
+      "cnt": "Cnt",
+      "developer": "Developer",
+      "project": "Project",
+      "help": {
+        "recordDate": "记录时间",
+        "cnt": "代码行数"
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+    "name": "SubmitRecord",
+    "fields": [
+        {
+            "fieldName": "recordDate",
+            "javadoc": "记录时间",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "cnt",
+            "javadoc": "代码行数",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "developer",
+            "otherEntityRelationshipName": "submitRecord",
+            "relationshipName": "developer",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "project",
+            "otherEntityRelationshipName": "submitRecord",
+            "relationshipName": "project",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20191019020828",
+    "javadoc": "提交记录",
+    "entityTableName": "submit_record",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

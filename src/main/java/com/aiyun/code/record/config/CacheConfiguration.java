@@ -42,6 +42,9 @@ public class CacheConfiguration {
             createCache(cm, com.aiyun.code.record.domain.User.class.getName());
             createCache(cm, com.aiyun.code.record.domain.Authority.class.getName());
             createCache(cm, com.aiyun.code.record.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.aiyun.code.record.domain.Project.class.getName());
+            createCache(cm, com.aiyun.code.record.domain.Developer.class.getName());
+            createCache(cm, com.aiyun.code.record.domain.SubmitRecord.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
